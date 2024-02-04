@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -30,7 +30,8 @@ import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useSetRecoilState } from "recoil";
 import { formValueAtom } from "../recoil/formValueAtom";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+
 
 
 type formInput = z.infer<typeof formSchema>;
@@ -38,10 +39,9 @@ type formInput = z.infer<typeof formSchema>;
 const CreateCard: FC = () => {
   const [formStep, setFormStep] = useState(0);
   const { toast } = useToast();
+  const router = useRouter();
 
   const setFormValues = useSetRecoilState(formValueAtom);
-;
-
   const form = useForm<formInput>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,9 +58,10 @@ const CreateCard: FC = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     // alert(JSON.stringify(values, null, 4));
-    console.log(values.name, values.github);
+    console.log(values);
     setFormValues(values);
-    redirect("/customiseCard")
+    localStorage.setItem("formValues", JSON.stringify(values));
+    router.push("/customiseCard");
   }
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,8 +75,6 @@ const CreateCard: FC = () => {
       reader.readAsDataURL(selectedFile);
     }
   };
-  
-  
 
   return (
     <motion.div

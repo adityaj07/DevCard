@@ -24,7 +24,7 @@ const Home: FC<HomeProps> = ({}) => {
           className="left-0 top-20 md:left-32  md:top-0 lg:left-64 lg:-top-60"
           fill="white "
         />
-        <div className="flex flex-col justify-center items-center z-[10]">
+        <div className="flex flex-col justify-center items-center">
           <h1 className=" gap-1 items-center tracking-tighter text-[clamp(4rem,5vw,3rem)] leading-tight md:leading-tight font-medium mb-6 mt-16 block md:inline">
             Code.{" "}
             <span className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black">
