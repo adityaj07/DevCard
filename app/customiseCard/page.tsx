@@ -75,7 +75,7 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
                 <SelectGroup>
                   <SelectLabel>Select a roundness</SelectLabel>
                   {options.map((o) => (
-                    <SelectItem value={o.value.toString()}>
+                    <SelectItem value={o.value.toString()} key={o.value}>
                       {o.label}{" "}
                     </SelectItem>
                   ))}

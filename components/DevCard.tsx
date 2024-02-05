@@ -35,34 +35,14 @@ const DevCard: FC<DevCardProps> = ({}) => {
   console.log(`${roundness}px`)
 
   return (
-    // <div
-    //   className={`flex justify-center p-2 gap-2 border border-zinc-500/40`}
-    // >
-    //   <div className=" border ">
-    //   {/* <Image src={formValues.picture ? "/assets/logo.png" : formValues.picture!} alt={`${formValues.name} image`} width={400} height={400}/> */}
+    <>
 
-    //     <Image src="/assets/logo.png" width={400} height={400} alt="image" className="rounded-full w-40 h-40"/>
-    //   </div>
-
-    //   <div className="border">
-    //     <div className="flex flex-col">
-    //     <h1 className="text-[clamp(1.56rem, 1vw + 1.31rem, 2.11rem)]">
-    //       {formValues.name}
-    //     </h1>
-    //     <p>{formValues.bio}</p>
-
-    //     <div className="flex items-center justify-center gap-2">
-    //       {/* <SocialBadge name={}/> */}
-    //     </div>
-    //     </div>
-
-    //   </div>
-    // </div>
 
     <div
-    className={`bg-gradient-${gradientDirection} ${gradient} rounded-[${roundness}px] p-8 flex flex-col md:flex-row gap-6`}
+    className={`bg-gradient-${gradientDirection} ${gradient} rounded-[${roundness}px] p-8 flex flex-col md:flex-row gap-6 overflow-hidden`}
 
     >
+
       <div className="flex items-center mx-auto md:w-[80%]">
         <Image
           src={formValues.picture ? "/assets/logo.png" : formValues.picture!}
@@ -99,6 +79,7 @@ const DevCard: FC<DevCardProps> = ({}) => {
         <Link href="/contact"></Link>
       </div>
     </div>
+    </>
   );
 };
 
