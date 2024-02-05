@@ -10,8 +10,9 @@ import { FaGithub } from "react-icons/fa";
 import { FaGlobe, FaXTwitter } from "react-icons/fa6";
 import {
   gradientDirectionAtom,
+  roundnessAtom,
   selectedGradientAtom,
-} from "@/app/recoil/gradientAtom";
+} from "@/app/recoil/cardPersonalisationAtom";
 
 interface DevCardProps {}
 
@@ -20,8 +21,9 @@ const DevCard: FC<DevCardProps> = ({}) => {
   const [formValues, setFormValues] = useRecoilState(formValueAtom);
   const gradient = useRecoilValue(selectedGradientAtom);
   const gradientDirection = useRecoilValue(gradientDirectionAtom);
+  const roundness = useRecoilValue(roundnessAtom)
 
-  console.log(gradient)
+  // console.log(gradient)
 
   // const storedFormValues = localStorage.getItem("formValues");
   // if (storedFormValues !== null) {
@@ -30,6 +32,7 @@ const DevCard: FC<DevCardProps> = ({}) => {
   // }
 
   // console.log(formValues.picture);
+  console.log(`${roundness}px`)
 
   return (
     // <div
@@ -57,7 +60,8 @@ const DevCard: FC<DevCardProps> = ({}) => {
     // </div>
 
     <div
-      className={`bg-gradient-${gradientDirection} ${gradient} rounded-lg p-8 flex flex-col md:flex-row gap-6 `}
+    className={`bg-gradient-${gradientDirection} ${gradient} rounded-[${roundness}px] p-8 flex flex-col md:flex-row gap-6`}
+
     >
       <div className="flex items-center mx-auto md:w-[80%]">
         <Image

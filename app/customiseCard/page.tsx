@@ -4,17 +4,45 @@ import { formValueAtom } from "../recoil/formValueAtom";
 import DevCard from "@/components/DevCard";
 import GradientSelector from "@/components/GradientSelector";
 import { Label } from "@/components/ui/label";
-import { Slider } from "@/components/ui/slider";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { Switch } from "@/components/ui/switch";
 import { ArrowRight } from "lucide-react";
-import { FC } from "react";
+import { ChangeEvent, FC, FormEvent } from "react";
+import { useRecoilState } from "recoil";
+import { roundnessAtom } from "../recoil/cardPersonalisationAtom";
 
 interface CustomiseCardProps {}
 
 const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
+  const [roundness, setRoundness] = useRecoilState(roundnessAtom);
+
+  const options = [
+    { value: "0", label: "Flat as a pancake" },
+    { value: "2", label: "Slightly rounded" },
+    { value: "4", label: "Just right" },
+    { value: "6", label: "Round enough to be cuddly" },
+    { value: "8", label: "Pretty darn round" },
+    { value: "12", label: "Getting thicc" },
+    { value: "16", label: "Chonky boy" },
+    { value: "24", label: "Absolute unit" },
+  ];
+
+  const handleRoundnessChange = (value: string) => {
+    const selectedValue = parseInt(value)
+    setRoundness(selectedValue);
+  };
+
   return (
     <div className="flex flex-col gap-2">
-
       <h1 className="text-3xl md:text-4xl mb-4 md:mb-6 font-semibold relative inline-flex gap-1 items-center justify-center text-center tracking-tighter text-[clamp(1.8rem,3vw,2.5rem)] leading-none  pb-4 mt-8">
         Personalize your DevCard
       </h1>
@@ -37,7 +65,23 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
             <Label htmlFor="border-radius" className="w-[40%] text-start">
               Roundness
             </Label>
-            <Slider defaultValue={[33]} max={100} step={1} id="border-radius" />
+            <Select
+              onValueChange={(value: string) => handleRoundnessChange(value)}
+            >
+              <SelectTrigger className="w-[50%]">
+                <SelectValue placeholder={options[2].label} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Select a roundness</SelectLabel>
+                  {options.map((o) => (
+                    <SelectItem value={o.value.toString()}>
+                      {o.label}{" "}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
 
           {/* shadow adjuster */}
@@ -45,7 +89,7 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
             <Label htmlFor="shadow-adjust" className="w-[40%] text-start">
               Shadow
             </Label>
-            <Slider defaultValue={[33]} max={100} step={1} id="shadow-adjust" />
+            {/* <Slider defaultValue={[33]} max={100} step={1} id="shadow-adjust" /> */}
           </div>
           {/* shadow color selector */}
 

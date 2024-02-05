@@ -12,3 +12,8 @@ export const gradientDirectionAtom = atom({
   key: "gradientDirectionAtom",
   default: 'to-tr',
 });
+
+export const roundnessAtom = atom({
+  key:"roundnessAtom",
+  default: 4
+})

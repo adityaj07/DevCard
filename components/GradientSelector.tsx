@@ -13,7 +13,7 @@ import { useRecoilState } from "recoil";
 import {
   selectedGradientAtom,
   gradientDirectionAtom,
-} from "@/app/recoil/gradientAtom";
+} from "@/app/recoil/cardPersonalisationAtom";
 
 const GradientSelector: FC = () => {
   const [selectedGradient, setSelectedGradient] =
