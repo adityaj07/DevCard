@@ -17,13 +17,13 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { ArrowRight } from "lucide-react";
 import { ChangeEvent, FC, FormEvent } from "react";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { roundnessAtom } from "../recoil/cardPersonalisationAtom";
 
 interface CustomiseCardProps {}
 
 const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
-  const [roundness, setRoundness] = useRecoilState(roundnessAtom);
+  const setRoundness = useSetRecoilState(roundnessAtom);
 
   const options = [
     { value: "0", label: "Flat as a pancake" },
@@ -37,7 +37,7 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
   ];
 
   const handleRoundnessChange = (value: string) => {
-    const selectedValue = parseInt(value)
+    const selectedValue = parseInt(value);
     setRoundness(selectedValue);
   };
 
@@ -69,7 +69,7 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
               onValueChange={(value: string) => handleRoundnessChange(value)}
             >
               <SelectTrigger className="w-[50%]">
-                <SelectValue placeholder={options[2].label} />
+                <SelectValue placeholder={options[6].label} />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
