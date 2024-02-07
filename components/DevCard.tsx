@@ -3,7 +3,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import SocialBadge from "./SocialBadge";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { formValueAtom } from "@/app/recoil/formValueAtom";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
@@ -13,7 +13,7 @@ import {
   roundnessAtom,
   selectedGradientAtom,
 } from "@/app/recoil/cardPersonalisationAtom";
-import { cn } from "@/lib/utils";
+
 
 interface DevCardProps {}
 
@@ -44,20 +44,10 @@ const DevCard: FC<DevCardProps> = ({}) => {
   // );
 
   console.log(roundness, gradient, gradientDirection);
-  const dynamicClass = cn(
-    `bg-gradient-${gradientDirection}`,
-    gradient,
-    `rounded${roundness}`,
-    "p-8",
-    "flex",
-    "flex-col",
-    "md:flex-row",
-    "gap-6",
-    "overflow-hidden"
-  );
+
   return (
     <>
-      <div className={dynamicClass}>
+      <div className={`bg-gradient-${gradientDirection} ${gradient} rounded${roundness} relative flex flex-col md:flex-row items-center justify-center overflow-hidden max-w-full origin-top max-h-full p-8 gap-6 `}>
         <div className="flex items-center mx-auto md:w-[80%]">
           <Image
             src={formValues.picture ? "/assets/logo.png" : formValues.picture!}
