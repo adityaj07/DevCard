@@ -67,41 +67,41 @@ import {
     {
       name: "To Top",
       icon: <ArrowUp strokeWidth={0.5} absoluteStrokeWidth />,
-      value: "to-t",
+      value: "bg-gradient-to-t",
     },
     {
       name: "To Top Right",
       icon: <ArrowUpRight strokeWidth={0.5} absoluteStrokeWidth />,
-      value: "to-tr",
+      value: "bg-gradient-to-tr",
     },
     {
       name: "To Right",
       icon: <ArrowRight strokeWidth={0.5} absoluteStrokeWidth />,
-      value: "to-r",
+      value: "bg-gradient-to-r",
     },
     {
       name: "To Bottom Right",
       icon: <ArrowDownRight strokeWidth={0.5} absoluteStrokeWidth />,
-      value: "to-br",
+      value: "bg-gradient-to-br",
     },
     {
       name: "To Bottom",
       icon: <ArrowDown strokeWidth={0.5} absoluteStrokeWidth />,
-      value: "to-b",
+      value: "bg-gradient-to-b",
     },
     {
       name: "To Bottom Left",
       icon: <ArrowDownLeft strokeWidth={0.5} absoluteStrokeWidth />,
-      value: "to-bl",
+      value: "bg-gradient-to-bl",
     },
     {
       name: "To Left",
       icon: <ArrowLeft strokeWidth={0.5} absoluteStrokeWidth />,
-      value: "to-l",
+      value: "bg-gradient-to-l",
     },
     {
       name: "To Top Left",
       icon: <ArrowUpLeft strokeWidth={0.5} absoluteStrokeWidth />,
-      value: "to-tl",
+      value: "bg-gradient-to-tl",
     },
   ];

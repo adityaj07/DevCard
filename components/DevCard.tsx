@@ -47,7 +47,8 @@ const DevCard: FC<DevCardProps> = ({}) => {
 
   return (
     <>
-      <div className={`bg-gradient-${gradientDirection} ${gradient} rounded${roundness} relative flex flex-col md:flex-row items-center justify-center overflow-hidden max-w-full origin-top max-h-full p-8 gap-6 `}>
+      <div className={`${gradientDirection} ${gradient} ${roundness} relative flex flex-col md:flex-row items-center justify-center overflow-hidden max-w-full origin-top max-h-full p-8 gap-6 `}>
+       
         <div className="flex items-center mx-auto md:w-[80%]">
           <Image
             src={formValues.picture ? "/assets/logo.png" : formValues.picture!}

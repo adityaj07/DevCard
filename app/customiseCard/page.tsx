@@ -26,17 +26,18 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
   const setRoundness = useSetRecoilState(roundnessAtom);
 
   const options = [
-    { value: "-none", label: "Flat as a pancake" },
-    { value: "-sm", label: "Slightly rounded" },
-    { value: " ", label: "Just right" },
-    { value: "-md", label: "Round enough to be cuddly" },
-    { value: "-lg", label: "Pretty darn round" },
-    { value: "-xl", label: "Getting thicc" },
-    { value: "-2xl", label: "Chonky boy" },
-    { value: "-3xl", label: "Absolute unit" },
+    { value: "rounded-none", label: "Flat as a pancake" },
+    { value: "rounded-sm", label: "Slightly rounded" },
+    { value: "rounded ", label: "Just right" },
+    { value: "rounded-md", label: "Round enough to be cuddly" },
+    { value: "rounded-lg", label: "Pretty darn round" },
+    { value: "rounded-xl", label: "Getting thicc" },
+    { value: "rounded-2xl", label: "Chonky boy" },
+    { value: "rounded-3xl", label: "Absolute unit" },
   ];
 
   const handleRoundnessChange = (value: string) => {
+    console.log(value)
     setRoundness(value);
   };
 
@@ -75,7 +76,7 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
                 <SelectGroup>
                   <SelectLabel>Select a roundness</SelectLabel>
                   {options.map((o) => (
-                    <SelectItem value={o.value.toString()} key={o.value}>
+                    <SelectItem value={o.value} key={o.value}>
                       {o.label}{" "}
                     </SelectItem>
                   ))}
