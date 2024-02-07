@@ -58,7 +58,7 @@ const CreateCard: FC = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     // alert(JSON.stringify(values, null, 4));
-    console.log(values);
+    // console.log(values);
     setFormValues(values);
     localStorage.setItem("formValues", JSON.stringify(values));
     router.push("/customiseCard");

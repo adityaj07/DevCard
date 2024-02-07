@@ -1,7 +1,5 @@
 import { atom } from "recoil";
-import { presetGradients } from "../data";
-
-
+import { gradientDirectionOptions, presetGradients } from "../data";
 
 export const selectedGradientAtom = atom({
   key: "selectedGradientAtom",
@@ -10,10 +8,10 @@ export const selectedGradientAtom = atom({
 
 export const gradientDirectionAtom = atom({
   key: "gradientDirectionAtom",
-  default: 'to-tr',
+  default: gradientDirectionOptions[1].value,
 });
 
 export const roundnessAtom = atom({
   key:"roundnessAtom",
-  default: 16
+  default: " "
 })

@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Label } from "@/components/ui/label";
 import {
   Popover,
@@ -26,15 +26,11 @@ const GradientSelector: FC = () => {
     setSelectedGradient(gradientValue);
   };
 
-  const handleGradientDirection = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    gradientDirection: string
-  ) => {
-    e.stopPropagation();
+  const handleGradientDirection = (gradientDirection: string) => {
     setGradientDirection(gradientDirection);
   };
 
-  console.log(selectedGradient, gradientDirection);
+  // console.log(selectedGradient, gradientDirection);
 
   return (
     <Popover>
@@ -84,7 +80,7 @@ const GradientSelector: FC = () => {
                       ? "border-slate-800/50 dark:border-white"
                       : ""
                   }`}
-                  onClick={(e) => handleGradientDirection(e, g.value)}
+                  onClick={() => handleGradientDirection(g.value)}
                   key={g.name}
                 >
                   {g.icon}

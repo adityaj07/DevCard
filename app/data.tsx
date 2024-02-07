@@ -1,5 +1,4 @@
 
-
 interface GradientOption {
   name: string;
   value: string;
@@ -57,9 +56,7 @@ import {
     ArrowUpLeft,
     ArrowUpRight,
   } from "lucide-react";
-  
 
-  
   interface GradientDirectionOption {
     name: string;
     icon: JSX.Element;

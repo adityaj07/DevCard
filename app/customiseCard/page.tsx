@@ -26,19 +26,18 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
   const setRoundness = useSetRecoilState(roundnessAtom);
 
   const options = [
-    { value: "0", label: "Flat as a pancake" },
-    { value: "2", label: "Slightly rounded" },
-    { value: "4", label: "Just right" },
-    { value: "6", label: "Round enough to be cuddly" },
-    { value: "8", label: "Pretty darn round" },
-    { value: "12", label: "Getting thicc" },
-    { value: "16", label: "Chonky boy" },
-    { value: "24", label: "Absolute unit" },
+    { value: "-none", label: "Flat as a pancake" },
+    { value: "-sm", label: "Slightly rounded" },
+    { value: " ", label: "Just right" },
+    { value: "-md", label: "Round enough to be cuddly" },
+    { value: "-lg", label: "Pretty darn round" },
+    { value: "-xl", label: "Getting thicc" },
+    { value: "-2xl", label: "Chonky boy" },
+    { value: "-3xl", label: "Absolute unit" },
   ];
 
   const handleRoundnessChange = (value: string) => {
-    const selectedValue = parseInt(value);
-    setRoundness(selectedValue);
+    setRoundness(value);
   };
 
   return (
@@ -58,6 +57,7 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
 
           {/* Background Selector */}
           <GradientSelector />
+
           {/* Pattern Selector */}
 
           {/* Border-radius selector */}
@@ -69,7 +69,7 @@ const CustomiseCard: FC<CustomiseCardProps> = ({}) => {
               onValueChange={(value: string) => handleRoundnessChange(value)}
             >
               <SelectTrigger className="w-[50%]">
-                <SelectValue placeholder={options[6].label} />
+                <SelectValue placeholder={options[2].label} />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>

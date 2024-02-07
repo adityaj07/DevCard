@@ -13,13 +13,13 @@ import {
   roundnessAtom,
   selectedGradientAtom,
 } from "@/app/recoil/cardPersonalisationAtom";
-import { cn } from "@/lib/utils";
 
 interface DevCardProps {}
 
 const DevCard: FC<DevCardProps> = ({}) => {
   // Retrieve form values from Recoil state
-  const [formValues, setFormValues] = useRecoilState(formValueAtom);
+
+  const formValues = useRecoilValue(formValueAtom);
   const gradient = useRecoilValue(selectedGradientAtom);
   const gradientDirection = useRecoilValue(gradientDirectionAtom);
   const roundness = useRecoilValue(roundnessAtom);
@@ -33,22 +33,25 @@ const DevCard: FC<DevCardProps> = ({}) => {
   // }
 
   // console.log(formValues.picture);
-  console.log(`${roundness}px`, typeof roundness);
+  // console.log(
+  //   roundness,
+  //   gradientDirection,
+  //   typeof gradientDirection,
+  //   typeof roundness,
+  //   gradient,
+  //   typeof gradient
+  // );
 
   return (
     <>
       <div
-        className={cn(
-          `bg-gradient-${gradientDirection}`,
-          gradient,
-          `rounded-[${roundness}px]`,
-          "p-8",
-          "flex",
-          "flex-col",
-          "md:flex-row",
-          "gap-6",
-          "overflow-hidden"
-        )}
+        className={`bg-gradient-${gradientDirection} ${gradient} rounded${roundness}
+          p-8
+          flex
+          flex-col
+          md:flex-row
+          gap-6
+          overflow-hidden`}
       >
         <div className="flex items-center mx-auto md:w-[80%]">
           <Image
